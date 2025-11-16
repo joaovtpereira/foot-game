@@ -1,4 +1,5 @@
 namespace FootGame.Domain.Entities;
+using FootGame.Domain.ValueObjects;
 
 public class Player
 {

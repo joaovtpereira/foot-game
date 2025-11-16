@@ -1,4 +1,4 @@
-namespace FootGame.Domain.Entities;
+namespace FootGame.Domain.ValueObjects;
 
 public class PlayerSkill
 {

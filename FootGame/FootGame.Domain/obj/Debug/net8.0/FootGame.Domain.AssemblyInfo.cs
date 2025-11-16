@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FootGame.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+642bc5651c646a2708eb51c3b157ade80505bd73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca4c033b4cb00cdedb73be03680ae2f7575df0dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("FootGame.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FootGame.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
