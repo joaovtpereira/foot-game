@@ -1,0 +1,12 @@
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/bin/Debug/net8.0/FootGame.Domain.deps.json
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/bin/Debug/net8.0/FootGame.Domain.dll
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/bin/Debug/net8.0/FootGame.Domain.pdb
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.AssemblyInfoInputs.cache
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.AssemblyInfo.cs
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.csproj.CoreCompileInputs.cache
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.sourcelink.json
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.dll
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/refint/FootGame.Domain.dll
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/FootGame.Domain.pdb
+/Users/joaovitorpereira/Documents/repositorios/foot-game/FootGame/FootGame.Domain/obj/Debug/net8.0/ref/FootGame.Domain.dll

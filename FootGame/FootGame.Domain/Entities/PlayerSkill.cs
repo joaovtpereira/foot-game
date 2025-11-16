@@ -1,9 +1,7 @@
 namespace FootGame.Domain.Entities;
 
-public class Skill
+public class PlayerSkill
 {
-    public Guid Id { get; private set; }
-    public Guid PlayerId { get; private set; }
     public int Pace { get; private set; }       
     public int Shooting { get; private set; }     
     public int Passing { get; private set; }      
@@ -13,8 +11,7 @@ public class Skill
     public int Goalkeeping { get; private set; }    
     public int Overall { get; private set; }
 
-    public Skill(
-        Guid playerId,
+    public PlayerSkill(
         int pace,
         int shooting,
         int passing,
@@ -23,8 +20,6 @@ public class Skill
         int physicality,
         int goalkeeping)
     {
-        Id = Guid.NewGuid();
-        PlayerId = playerId;
         SetPace(pace);
         SetShooting(shooting);
         SetPassing(passing);
@@ -32,6 +27,7 @@ public class Skill
         SetDefending(defending);
         SetPhysicality(physicality);
         SetGoalkeeping(goalkeeping);
+        UpdateOverall();
     }
 
     private void ValidateSkillValue(int value, string skillName)
@@ -46,42 +42,49 @@ public class Skill
     {
         ValidateSkillValue(value, nameof(Pace));
         Pace = value;
+        UpdateOverall();
     }
 
     public void SetShooting(int value)
     {
         ValidateSkillValue(value, nameof(Shooting));
         Shooting = value;
+        UpdateOverall();
     }
 
     public void SetPassing(int value)
     {
         ValidateSkillValue(value, nameof(Passing));
         Passing = value;
+        UpdateOverall();
     }
 
     public void SetDribbling(int value)
     {
         ValidateSkillValue(value, nameof(Dribbling));
         Dribbling = value;
+        UpdateOverall();
     }
 
     public void SetDefending(int value)
     {
         ValidateSkillValue(value, nameof(Defending));
         Defending = value;
+        UpdateOverall();
     }
 
     public void SetPhysicality(int value)
     {
         ValidateSkillValue(value, nameof(Physicality));
         Physicality = value;
+        UpdateOverall();
     }
 
     public void SetGoalkeeping(int value)
     {
         ValidateSkillValue(value, nameof(Goalkeeping));
         Goalkeeping = value;
+        UpdateOverall();
     }
 
     private void UpdateOverall()

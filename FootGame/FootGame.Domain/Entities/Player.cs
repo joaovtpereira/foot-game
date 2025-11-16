@@ -8,8 +8,8 @@ public class Player
     public int Height { get; private set; }
     public int Weight { get; private set; }
     public bool IsRetired { get; private set; }
-    public Skill Skills { get; private set; }
-    public Player(string name, int age, int height, int weight, Skill skills)
+    public PlayerSkill Skills { get; private set; }
+    public Player(string name, int age, int height, int weight, PlayerSkill skills)
     {
         Id = Guid.NewGuid();
         Name = name;
