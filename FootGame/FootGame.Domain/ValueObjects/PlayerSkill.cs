@@ -1,53 +1,178 @@
 namespace FootGame.Domain.ValueObjects;
-
+using FootGame.Domain.Enums;
 public class PlayerSkill
 {
     // Mentality
-    public int Composure {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador manter a calma e o controle sob pressão.
+    /// </summary>
+    public int Composure {get; private set;} 
+
+    /// <summary>
+    /// Habilidade do jogador se posicionar corretamente em campo.
+    /// </summary>
     public int Positioning {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ser agressivo em disputas e jogadas.
+    /// </summary>
     public int Aggressiveness {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter determinação e vontade de vencer e não desistir.
+    /// </summary>
     public int Determination {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ser líder dentro e fora de campo.
+    /// </summary>
     public int Leadership {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador trabalhar em equipe e colaborar com os companheiros.
+    /// </summary>
     public int Teamwork {get; private set;}
 
     // Physical
+
+    /// <summary>
+    /// Habilidade do jogador ter velocidade máxima.
+    /// </summary>
     public int Pace { get; private set; }       
+
+    /// <summary>
+    /// Habilidade do jogador ter aceleração rápida.
+    /// </summary>
     public int Acceleration {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter resistência física.
+    /// </summary>
     public int Stamina {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter força física.
+    /// </summary>
     public int Strength {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de saltar alto.
+    /// </summary>
     public int Jumping {get; private set;}
 
     // Technical Attack
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de finalizar e marcar gols.
+    /// </summary>
     public int Finishing { get; private set; }   
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de chutar de longa distância.
+    /// </summary>
     public int LongShots { get; private set; }   
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de chutar com força.
+    /// </summary>
     public int ShotPower { get; private set; }   
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de cabecear a bola.
+    /// </summary>
     public int Heading { get; private set; }
 
     // Technical General
 
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de passar a bola.
+    /// </summary>
     public int Passing { get; private set; }      
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de enxergar jogadas e oportunidades.
+    /// </summary>
     public int Vision {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de cruzar a bola.
+    /// </summary>
     public int Crossing { get; private set; }
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de passar de longa distância.
+    /// </summary>
     public int LongPassing { get; private set; }
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de driblar adversários.
+    /// </summary>
     public int Dribbling { get; private set; }     
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de ser ágil e flexível.
+    /// Determina a capacidade de executar movimentos rápidos e precisos, afetando a capacidade de driblar.
+    /// </summary>
     public int Agility {get; private set;}
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de controlar a bola.
+    /// </summary>
     public int BallControl {get; private set;}
 
     // Technical Defense
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de defender, principalmente a inteligência defensiva.
+    /// </summary>
     public int Defending { get; private set; }     
+
+    /// <summary>
+    /// Habilidade do jogador de roubar a bola de adversários.
+    /// </summary>
     public int Tackling { get; private set; }
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de marcar adversários.
+    /// </summary>
     public int Marking { get; private set; }
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de interceptar a bola de adversários.
+    /// </summary>
     public int Interception { get; private set; }
+
+    /// <summary>
+    /// Habilidade do jogador ter capacidade de analisar a situação do jogo e tomar decisões defensivas.
+    /// </summary>
     public int DefensiveVision { get; private set; }
 
     // Goalkeeping
+
+    /// <summary>
+    /// Habilidade do goleiro ter capacidade de reagir rapidamente a jogadas e chutes.
+    /// </summary>
     public int Reflexes { get; private set; }
+
+    /// <summary>
+    /// Habilidade do goleiro ter capacidade de se posicionar corretamente para defender.
+    /// </summary>
     public int GoalkeepingPositioning { get; private set; }
+
+    /// <summary>
+    /// Habilidade do goleiro ter capacidade de manipular a bola com precisão.
+    /// </summary>
     public int Handling { get; private set; }
+
+    /// <summary>
+    /// Habilidade do goleiro ter capacidade de defender chutes de longa distância.
+    /// </summary>
     public int Diving { get; private set; }
 
     public int Overall { get; private set; }
-    
+    public PlayerPosition Position { get; private set; }
+
     public PlayerSkill(
         int Composure,
         int Positioning,
@@ -79,7 +204,8 @@ public class PlayerSkill
         int Reflexes,
         int Handling,
         int Diving,
-        int GoalkeepingPositioning)
+        int GoalkeepingPositioning,
+        PlayerPosition position)
     {
         SetComposure(Composure);
         SetPositioning(Positioning);
@@ -112,6 +238,7 @@ public class PlayerSkill
         SetHandling(Handling);
         SetDiving(Diving);
         SetGoalkeepingPositioning(GoalkeepingPositioning);
+        this.Position = position;
         UpdateOverall();
     }
 
@@ -148,7 +275,8 @@ public class PlayerSkill
             Reflexes: 50,
             Handling: 50,
             Diving: 50,
-            GoalkeepingPositioning: 50
+            GoalkeepingPositioning: 50,
+            position: PlayerPosition.CentralMidfielder
         );
     }
 
