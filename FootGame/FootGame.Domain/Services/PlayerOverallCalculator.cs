@@ -4,11 +4,11 @@ namespace FootGame.Domain.Services;
 
 public class PlayerOverallCalculator
 {
-    public int CalculateOverall(PlayerSkill skill, PlayerPosition position)
+    public int CalculateOverall(PlayerSkill skill)
     {
         double weightedRating = 0;
 
-        switch (position)
+        switch (skill.Position)
         {
             case PlayerPosition.Goalkeeper:
                 weightedRating = CalculateGoalkeeperOverall(skill);

@@ -1,5 +1,6 @@
 namespace FootGame.Domain.ValueObjects;
 using FootGame.Domain.Enums;
+using FootGame.Domain.Services;
 public class PlayerSkill
 {
     // Mentality
@@ -7,76 +8,76 @@ public class PlayerSkill
     /// <summary>
     /// Habilidade do jogador manter a calma e o controle sob pressão.
     /// </summary>
-    public int Composure {get; private set;} 
+    public int Composure { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador se posicionar corretamente em campo.
     /// </summary>
-    public int Positioning {get; private set;}
+    public int Positioning { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ser agressivo em disputas e jogadas.
     /// </summary>
-    public int Aggressiveness {get; private set;}
+    public int Aggressiveness { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter determinação e vontade de vencer e não desistir.
     /// </summary>
-    public int Determination {get; private set;}
+    public int Determination { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ser líder dentro e fora de campo.
     /// </summary>
-    public int Leadership {get; private set;}
+    public int Leadership { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador trabalhar em equipe e colaborar com os companheiros.
     /// </summary>
-    public int Teamwork {get; private set;}
+    public int Teamwork { get; private set; }
 
     // Physical
 
     /// <summary>
     /// Habilidade do jogador ter velocidade máxima.
     /// </summary>
-    public int Pace { get; private set; }       
+    public int Pace { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter aceleração rápida.
     /// </summary>
-    public int Acceleration {get; private set;}
+    public int Acceleration { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter resistência física.
     /// </summary>
-    public int Stamina {get; private set;}
+    public int Stamina { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter força física.
     /// </summary>
-    public int Strength {get; private set;}
+    public int Strength { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de saltar alto.
     /// </summary>
-    public int Jumping {get; private set;}
+    public int Jumping { get; private set; }
 
     // Technical Attack
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de finalizar e marcar gols.
     /// </summary>
-    public int Finishing { get; private set; }   
+    public int Finishing { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de chutar de longa distância.
     /// </summary>
-    public int LongShots { get; private set; }   
+    public int LongShots { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de chutar com força.
     /// </summary>
-    public int ShotPower { get; private set; }   
+    public int ShotPower { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de cabecear a bola.
@@ -88,12 +89,12 @@ public class PlayerSkill
     /// <summary>
     /// Habilidade do jogador ter capacidade de passar a bola.
     /// </summary>
-    public int Passing { get; private set; }      
+    public int Passing { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de enxergar jogadas e oportunidades.
     /// </summary>
-    public int Vision {get; private set;}
+    public int Vision { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de cruzar a bola.
@@ -108,25 +109,25 @@ public class PlayerSkill
     /// <summary>
     /// Habilidade do jogador ter capacidade de driblar adversários.
     /// </summary>
-    public int Dribbling { get; private set; }     
+    public int Dribbling { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de ser ágil e flexível.
     /// Determina a capacidade de executar movimentos rápidos e precisos, afetando a capacidade de driblar.
     /// </summary>
-    public int Agility {get; private set;}
+    public int Agility { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de controlar a bola.
     /// </summary>
-    public int BallControl {get; private set;}
+    public int BallControl { get; private set; }
 
     // Technical Defense
 
     /// <summary>
     /// Habilidade do jogador ter capacidade de defender, principalmente a inteligência defensiva.
     /// </summary>
-    public int Defending { get; private set; }     
+    public int Defending { get; private set; }
 
     /// <summary>
     /// Habilidade do jogador de roubar a bola de adversários.
@@ -239,7 +240,7 @@ public class PlayerSkill
         SetDiving(Diving);
         SetGoalkeepingPositioning(GoalkeepingPositioning);
         this.Position = position;
-        UpdateOverall();
+        CalculateOverall(); ;
     }
 
     public static PlayerSkill CreateDefaultPlayerSkill()
@@ -291,200 +292,195 @@ public class PlayerSkill
     {
         ValidateSkillValue(composure, nameof(Composure));
         this.Composure = composure;
-        UpdateOverall();
+        CalculateOverall();
     }
 
     public void SetPositioning(int positioning)
     {
         ValidateSkillValue(positioning, nameof(Positioning));
         this.Positioning = positioning;
-        UpdateOverall();
+        CalculateOverall();
     }
 
     public void SetAggressiveness(int aggressiveness)
     {
         ValidateSkillValue(aggressiveness, nameof(Aggressiveness));
         this.Aggressiveness = aggressiveness;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetDetermination(int determination)
     {
         ValidateSkillValue(determination, nameof(Determination));
         this.Determination = determination;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetLeadership(int leadership)
     {
         ValidateSkillValue(leadership, nameof(Leadership));
         this.Leadership = leadership;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetTeamwork(int teamwork)
     {
         ValidateSkillValue(teamwork, nameof(Teamwork));
         this.Teamwork = teamwork;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetPace(int pace)
     {
         ValidateSkillValue(pace, nameof(Pace));
         this.Pace = pace;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetAcceleration(int acceleration)
     {
         ValidateSkillValue(acceleration, nameof(Acceleration));
         this.Acceleration = acceleration;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetStamina(int stamina)
     {
         ValidateSkillValue(stamina, nameof(Stamina));
         this.Stamina = stamina;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetStrength(int strength)
     {
         ValidateSkillValue(strength, nameof(Strength));
         this.Strength = strength;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetJumping(int jumping)
     {
         ValidateSkillValue(jumping, nameof(Jumping));
         this.Jumping = jumping;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetFinishing(int finishing)
     {
         ValidateSkillValue(finishing, nameof(Finishing));
         this.Finishing = finishing;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetLongShots(int longShots)
     {
         ValidateSkillValue(longShots, nameof(LongShots));
         this.LongShots = longShots;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetShotPower(int shotPower)
     {
         ValidateSkillValue(shotPower, nameof(ShotPower));
         this.ShotPower = shotPower;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetHeading(int heading)
     {
         ValidateSkillValue(heading, nameof(Heading));
         this.Heading = heading;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetPassing(int passing)
     {
         ValidateSkillValue(passing, nameof(Passing));
         this.Passing = passing;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetVision(int vision)
     {
         ValidateSkillValue(vision, nameof(Vision));
         this.Vision = vision;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetCrossing(int crossing)
     {
         ValidateSkillValue(crossing, nameof(Crossing));
         this.Crossing = crossing;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetLongPassing(int longPassing)
     {
         ValidateSkillValue(longPassing, nameof(LongPassing));
         this.LongPassing = longPassing;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetDribbling(int dribbling)
     {
         ValidateSkillValue(dribbling, nameof(Dribbling));
         this.Dribbling = dribbling;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetAgility(int agility)
     {
         ValidateSkillValue(agility, nameof(Agility));
         this.Agility = agility;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetBallControl(int ballControl)
     {
         ValidateSkillValue(ballControl, nameof(BallControl));
         this.BallControl = ballControl;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetDefending(int defending)
     {
         ValidateSkillValue(defending, nameof(Defending));
         this.Defending = defending;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetTackling(int tackling)
     {
         ValidateSkillValue(tackling, nameof(Tackling));
         this.Tackling = tackling;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetMarking(int marking)
     {
         ValidateSkillValue(marking, nameof(Marking));
         this.Marking = marking;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetInterception(int interception)
     {
         ValidateSkillValue(interception, nameof(Interception));
         this.Interception = interception;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetDefensiveVision(int defensiveVision)
     {
         ValidateSkillValue(defensiveVision, nameof(DefensiveVision));
         this.DefensiveVision = defensiveVision;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetGoalkeepingPositioning(int goalkeepingPositioning)
     {
         ValidateSkillValue(goalkeepingPositioning, nameof(GoalkeepingPositioning));
         this.GoalkeepingPositioning = goalkeepingPositioning;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetReflexes(int reflexes)
     {
         ValidateSkillValue(reflexes, nameof(Reflexes));
         this.Reflexes = reflexes;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetHandling(int handling)
     {
         ValidateSkillValue(handling, nameof(Handling));
         this.Handling = handling;
-        UpdateOverall();
+        CalculateOverall();
     }
     public void SetDiving(int diving)
     {
         ValidateSkillValue(diving, nameof(Diving));
         this.Diving = diving;
-        UpdateOverall();
+        CalculateOverall();
     }
-    public void UpdateOverall()
+    private void CalculateOverall()
     {
-        var sum = Composure + Positioning + Aggressiveness + Determination + Leadership + Teamwork +
-                   Pace + Acceleration + Stamina + Strength + Jumping +
-                   Finishing + LongShots + ShotPower + Heading +
-                   Passing + Vision + Crossing + LongPassing + Dribbling + Agility + BallControl +
-                   Defending + Tackling + Marking + Interception + DefensiveVision +
-                   Reflexes + Handling + Diving + GoalkeepingPositioning;
-        
-        this.Overall = sum / 31;
+        var calculator = new PlayerOverallCalculator();
+        var overall = calculator.CalculateOverall(this);
+        this.Overall = overall;
     }
 }
 
