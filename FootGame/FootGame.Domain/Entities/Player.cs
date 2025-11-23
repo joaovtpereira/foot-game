@@ -1,32 +1,34 @@
 namespace FootGame.Domain.Entities;
 using FootGame.Domain.ValueObjects;
+using FootGame.Domain.Enums;
 
-public class Player
+public class Player(string name, DateTime birthDate, Guid nationalityId, int height, int weight, PlayerSkill skills, PlayerCareerStatus careerStatus, PlayerContractStatus? contractStatus = PlayerContractStatus.FreeAgent): Person(name, birthDate, nationalityId)
 {
-    public Guid Id { get; private set; }
-    public string Name { get; private set; }
-    public int Age { get; private set; }
-    public int Height { get; private set; }
-    public int Weight { get; private set; }
-    public bool IsRetired { get; private set; }
-    public PlayerSkill Skills { get; private set; }
-    public Player(string name, int age, int height, int weight, PlayerSkill skills)
+    public int Height { get; private set; } = height;
+    public int Weight { get; private set; } = weight;
+    public PlayerCareerStatus CareerStatus { get; private set; } = careerStatus;
+    public PlayerSkill Skills { get; private set; } = skills;
+    public PlayerContractStatus? ContractStatus { get; private set; } = contractStatus;
+
+    public Player SetHeight(int height)
     {
-        Id = Guid.NewGuid();
-        Name = name;
-        Age = age;
         Height = height;
+        return this;
+    }
+
+    public Player SetWeight(int weight)
+    {
         Weight = weight;
-        Skills = skills;
+        return this;
     }
 
     public void Retire()
     {
-        if (IsRetired)
+        if (CareerStatus == PlayerCareerStatus.Retired)
         {
             throw new Exception("Player is already retired");
         }
 
-        IsRetired = true;
+        CareerStatus = PlayerCareerStatus.Retired;
     }
 }
