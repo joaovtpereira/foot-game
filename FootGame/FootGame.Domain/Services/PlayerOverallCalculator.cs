@@ -110,13 +110,13 @@ public class PlayerOverallCalculator
     private double CalculateWinger(PlayerSkill skill)
     {
         return (skill.Pace * 0.15) +
-               (skill.Acceleration * 0.15) +
+               (skill.Acceleration * 0.10) +
                (skill.Dribbling * 0.20) +
-               (skill.Agility * 0.15) +
-               (skill.Crossing * 0.15) +
-               (skill.BallControl * 0.15) +
+               (skill.Agility * 0.10) +
+               (skill.Crossing * 0.10) +
+               (skill.BallControl * 0.10) +
                (skill.Finishing * 0.05) +
-               (skill.Stamina * 0.10) +
+               (skill.Stamina * 0.05) +
                (skill.Vision * 0.10) +
                (skill.Passing * 0.05);
     }
@@ -125,24 +125,24 @@ public class PlayerOverallCalculator
     {
         return (skill.Dribbling * 0.20) +
                (skill.Finishing * 0.15) +
-               (skill.BallControl * 0.20) +
-               (skill.Vision * 0.15) +
+               (skill.BallControl * 0.15) +
+               (skill.Vision * 0.10) +
                (skill.Agility * 0.10) +
-               (skill.Acceleration * 0.10) +
-               (skill.Passing * 0.10) +
+               (skill.Acceleration * 0.05) +
+               (skill.Passing * 0.05) +
                (skill.LongShots * 0.10) +
                (skill.Positioning * 0.10);
     }
 
     private double CalculateStriker(PlayerSkill skill)
     {
-        return (skill.Finishing * 0.25) +
-               (skill.Heading * 0.20) +
-               (skill.Positioning * 0.20) +
+        return (skill.Finishing * 0.20) +
+               (skill.Heading * 0.15) +
+               (skill.Positioning * 0.15) +
                (skill.ShotPower * 0.15) +
-               (skill.Strength * 0.15) +
-               (skill.Jumping * 0.15) +
+               (skill.Strength * 0.10) +
+               (skill.Jumping * 0.10) +
                (skill.Composure * 0.05) +
-               (skill.BallControl * 0.05);
+               (skill.BallControl * 0.10);
     }
 }

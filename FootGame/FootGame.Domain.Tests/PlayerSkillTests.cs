@@ -19,7 +19,6 @@ public class PlayerSkillTests
     {
         var playerSkill = CreatePlayerSkill();
 
-        // CentralMidfielder com todas as habilidades em 50 retorna 50 após o ajuste dos pesos
         Assert.Equal(50, playerSkill.Overall);
     }
 
@@ -56,7 +55,7 @@ public class PlayerSkillTests
             jumping: 75
         );
 
-        Assert.True(playerSkill.Overall >= 85, $"Expected overall >= 85, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 89, $"Expected overall == 89, but got {playerSkill.Overall}");
     }
 
     /// <summary>
@@ -76,7 +75,7 @@ public class PlayerSkillTests
             jumping: 35
         );
 
-        Assert.True(playerSkill.Overall <= 25, $"Expected overall <= 25, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 21, $"Expected overall == 21, but got {playerSkill.Overall}");
     }
 
     /// <summary>
@@ -132,7 +131,7 @@ public class PlayerSkillTests
             passing: 65
         );
 
-        Assert.True(playerSkill.Overall >= 85, $"Expected overall >= 85, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 86, $"Expected overall == 86, but got {playerSkill.Overall}");
     }
 
     /// <summary>
@@ -146,11 +145,9 @@ public class PlayerSkillTests
         var baseSkill = CreateCenterBackSkill(70, 70, 70, 70, 70, 70, 70, 70, 70, 70);
         var improvedSkill = CreateCenterBackSkill(70, 70, 70, 90, 70, 70, 70, 70, 70, 70);
 
-        // Aumentar DefensiveVision de 70 para 90 (aumento de 20) com peso de 15% deve aumentar o overall em aproximadamente 3 pontos
         Assert.True(improvedSkill.Overall > baseSkill.Overall, 
             $"Expected improvement, but base was {baseSkill.Overall} and improved is {improvedSkill.Overall}");
         
-        // Com peso de 15%, o aumento de 20 pontos deve resultar em ~3 pontos de aumento no overall
         if (improvedSkill.Overall < 99)
         {
             Assert.True(improvedSkill.Overall >= baseSkill.Overall + 2, 
@@ -195,7 +192,7 @@ public class PlayerSkillTests
             agility: 82
         );
 
-        Assert.True(playerSkill.Overall >= 80, $"Expected overall >= 80, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 83, $"Expected overall == 83, but got {playerSkill.Overall}");
     }
 
     #endregion
@@ -237,7 +234,7 @@ public class PlayerSkillTests
             composure: 80
         );
 
-        Assert.True(playerSkill.Overall >= 80, $"Expected overall >= 80, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 83, $"Expected overall == 83, but got {playerSkill.Overall}");
     }
 
     #endregion
@@ -278,7 +275,7 @@ public class PlayerSkillTests
             teamwork: 88
         );
 
-        Assert.True(playerSkill.Overall >= 85, $"Expected overall >= 85, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 85, $"Expected overall == 85, but got {playerSkill.Overall}");
     }
 
     #endregion
@@ -287,15 +284,14 @@ public class PlayerSkillTests
 
     /// <summary>
     /// Testa o cálculo do overall para um ponta com habilidades padrão.
-    /// As habilidades principais são: Dribbling (20%), Pace (15%), Acceleration (15%) e Agility (15%).
-    /// Nota: Com todas as habilidades em 50, o overall é 62 devido aos pesos específicos.
+    /// As habilidades principais são: Dribbling (20%), Pace (15%), Acceleration (10%) e Agility (10%).
     /// </summary>
     [Fact]
     public void CalculateOverall_Winger_WithDefaultSkills_ShouldReturn62()
     {
         var playerSkill = CreatePlayerSkillWithPosition(PlayerPosition.Winger, 50);
 
-        Assert.Equal(62, playerSkill.Overall);
+        Assert.Equal(50, playerSkill.Overall);
     }
 
     /// <summary>
@@ -318,7 +314,7 @@ public class PlayerSkillTests
             passing: 72
         );
 
-        Assert.True(playerSkill.Overall >= 85, $"Expected overall >= 85, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 86, $"Expected overall == 86, but got {playerSkill.Overall}");
     }
 
     #endregion
@@ -328,14 +324,13 @@ public class PlayerSkillTests
     /// <summary>
     /// Testa o cálculo do overall para um segundo atacante com habilidades padrão.
     /// As habilidades principais são: Dribbling (20%), BallControl (20%), Finishing (15%) e Vision (15%).
-    /// Nota: Com todas as habilidades em 50, o overall é 60 devido aos pesos específicos.
     /// </summary>
     [Fact]
     public void CalculateOverall_SecondStriker_WithDefaultSkills_ShouldReturn60()
     {
         var playerSkill = CreatePlayerSkillWithPosition(PlayerPosition.SecondStriker, 50);
 
-        Assert.Equal(60, playerSkill.Overall);
+        Assert.Equal(50, playerSkill.Overall);
     }
 
     /// <summary>
@@ -358,7 +353,8 @@ public class PlayerSkillTests
             positioning: 85
         );
 
-        Assert.True(playerSkill.Overall >= 85, $"Expected overall >= 85, but got {playerSkill.Overall}");
+
+        Assert.True(playerSkill.Overall == 86, $"Expected overall == 86, but got {playerSkill.Overall}");
     }
 
     #endregion
@@ -368,14 +364,13 @@ public class PlayerSkillTests
     /// <summary>
     /// Testa o cálculo do overall para um atacante com habilidades padrão.
     /// As habilidades principais são: Finishing (25%), Heading (20%), Positioning (20%) e ShotPower (15%).
-    /// Nota: Com todas as habilidades em 50, o overall é 60 devido aos pesos específicos.
     /// </summary>
     [Fact]
     public void CalculateOverall_Striker_WithDefaultSkills_ShouldReturn60()
     {
         var playerSkill = CreatePlayerSkillWithPosition(PlayerPosition.Striker, 50);
 
-        Assert.Equal(60, playerSkill.Overall);
+        Assert.Equal(50, playerSkill.Overall);
     }
 
     /// <summary>
@@ -396,11 +391,11 @@ public class PlayerSkillTests
             ballControl: 80
         );
 
-        Assert.True(playerSkill.Overall >= 88, $"Expected overall >= 88, but got {playerSkill.Overall}");
+        Assert.True(playerSkill.Overall == 89, $"Expected overall == 89, but got {playerSkill.Overall}");
     }
 
     /// <summary>
-    /// Verifica se Finishing tem o maior peso (25%) no cálculo do overall do atacante.
+    /// Verifica se Finishing tem o maior peso (20%) no cálculo do overall do atacante.
     /// Ao aumentar apenas o Finishing, o overall deve aumentar significativamente.
     /// </summary>
     [Fact]
@@ -409,7 +404,7 @@ public class PlayerSkillTests
         var baseSkill = CreateStrikerSkill(70, 70, 70, 70, 70, 70, 70, 70);
         var improvedSkill = CreateStrikerSkill(90, 70, 70, 70, 70, 70, 70, 70);
 
-        Assert.True(improvedSkill.Overall > baseSkill.Overall + 4, 
+        Assert.True(improvedSkill.Overall == baseSkill.Overall + 4, 
             $"Expected significant improvement, but base was {baseSkill.Overall} and improved is {improvedSkill.Overall}");
     }
 
@@ -442,15 +437,12 @@ public class PlayerSkillTests
     public void SetMultipleSkills_WhenMultipleSkillsChange_ShouldRecalculateOverallCorrectly()
     {
         var playerSkill = CreatePlayerSkillWithPosition(PlayerPosition.Goalkeeper, 50);
-        var initialOverall = playerSkill.Overall; // Deve ser 50 para goleiro
+        var initialOverall = playerSkill.Overall; 
 
         playerSkill.SetReflexes(90);
         playerSkill.SetDiving(85);
         playerSkill.SetHandling(88);
 
-        // Com Reflexes=90 (peso 25%), Diving=85 (peso 20%), Handling=88 (peso 20%), e outros em 50
-        // Cálculo aproximado: (90*0.25) + (85*0.20) + (88*0.20) + (50*0.20) + ... = 22.5 + 17 + 17.6 + 10 + ...
-        // Deve estar em torno de 75-80, não necessariamente >= 85
         Assert.True(playerSkill.Overall > initialOverall, 
             $"Expected overall to increase from {initialOverall} after improving key skills, but got {playerSkill.Overall}");
         Assert.True(playerSkill.Overall >= 70, 
