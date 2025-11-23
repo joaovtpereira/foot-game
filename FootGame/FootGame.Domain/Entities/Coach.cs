@@ -18,9 +18,25 @@ public class Coach: Person
         TeamId = teamId;
     }
     
-    public Coach SetTeamId(Guid teamId)
+    public Coach AssignToTeam(Guid teamId)
     {
+        if(TeamId.HasValue)
+        {
+            throw new Exception("Coach is already assigned to a team. Unassign the coach from the current team first.");
+        }
+
         TeamId = teamId;
+        return this;
+    }
+
+    public Coach UnassignFromTeam()
+    {
+        if(!TeamId.HasValue)
+        {
+            throw new Exception("Coach is not assigned to any team.");
+        }
+
+        TeamId = null;
         return this;
     }
 }
