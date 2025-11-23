@@ -53,16 +53,16 @@ public class PlayerOverallCalculator
 
     private double CalculateCenterBackOverall(PlayerSkill skill)
     {
-        return (skill.Marking * 0.20) +
-                   (skill.Tackling * 0.20) +
-                   (skill.Interception * 0.20) +
-                   (skill.DefensiveVision * 0.25) +
-                   (skill.Strength * 0.15) +
-                   (skill.Heading * 0.10) +
-                   (skill.Jumping * 0.10) +
+        return (skill.Marking * 0.15) +
+                   (skill.Tackling * 0.15) +
+                   (skill.Interception * 0.15) +
+                   (skill.DefensiveVision * 0.15) +
+                   (skill.Strength * 0.10) +
+                   (skill.Heading * 0.05) +
+                   (skill.Jumping * 0.05) +
                    (skill.Aggressiveness * 0.10) +
                    (skill.Determination * 0.05) +
-                   (skill.Passing * 0.10);
+                   (skill.Passing * 0.05);
     }
 
     private double CalculateFullBackOverall(PlayerSkill skill)
@@ -74,20 +74,20 @@ public class PlayerOverallCalculator
                 (skill.Tackling * 0.10) +
                 (skill.Marking * 0.10) +
                 (skill.Dribbling * 0.05) +
-                (skill.Positioning * 0.10) +
-                (skill.Passing * 0.10) +
+                (skill.Positioning * 0.05) +
+                (skill.Passing * 0.05) +
                 (skill.Agility * 0.05);
     }
 
     private double CalculateDefensiveMidfielder(PlayerSkill skill)
     {
-        return (skill.Interception * 0.20) +
-               (skill.Tackling * 0.20) +
-               (skill.Stamina * 0.15) +
-               (skill.Strength * 0.15) +
-               (skill.Passing * 0.15) +
+        return (skill.Interception * 0.15) +
+               (skill.Tackling * 0.15) +
+               (skill.Stamina * 0.10) +
+               (skill.Strength * 0.10) +
+               (skill.Passing * 0.10) +
                (skill.LongPassing * 0.10) +
-               (skill.DefensiveVision * 0.15) +
+               (skill.DefensiveVision * 0.10) +
                (skill.Teamwork * 0.05) +
                (skill.Aggressiveness * 0.05) +
                (skill.Composure * 0.10);
@@ -95,16 +95,16 @@ public class PlayerOverallCalculator
 
     private double CalculateCentralMidfielder(PlayerSkill skill)
     {
-        return (skill.Passing * 0.20) +
-               (skill.Vision * 0.20) +
-               (skill.BallControl * 0.20) +
+        return (skill.Passing * 0.15) +
+               (skill.Vision * 0.15) +
+               (skill.BallControl * 0.15) +
                (skill.Dribbling * 0.10) +
-               (skill.LongPassing * 0.15) +
-               (skill.Stamina * 0.15) +
+               (skill.LongPassing * 0.10) +
+               (skill.Stamina * 0.10) +
                (skill.Composure * 0.05) +
-               (skill.LongShots * 0.10) +
+               (skill.LongShots * 0.05) +
                (skill.Agility * 0.05) +
-               (skill.Teamwork * 0.15);
+               (skill.Teamwork * 0.10);
     }
 
     private double CalculateWinger(PlayerSkill skill)
