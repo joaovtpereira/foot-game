@@ -2,16 +2,38 @@ using FootGame.Domain.Enums;
 
 namespace FootGame.Domain.Entities;
 
-public class Team(string name, string code, Guid clubId, Guid cityId, TeamDepartmentType teamDepartmentType, Guid stadiumId, Guid? coachId = null)
+public class Team
 {
-    public Guid Id { get; private set; } = Guid.NewGuid();
-    public string Name { get; private set; } = name;
-    public string Code { get; private set; } = code;
-    public Guid ClubId { get; private set; } = clubId;
-    public Guid CityId { get; private set; } = cityId;
-    public TeamDepartmentType TeamDepartmentType { get; private set; } = teamDepartmentType;
-    public Guid StadiumId { get; private set; } = stadiumId;
-    public Guid? CoachId { get; private set; } = coachId;
+    public Guid Id { get; private set; }
+    public string Name { get; private set; }
+    public string Code { get; private set; }
+    public Guid ClubId { get; private set; }
+    public Guid CityId { get; private set; }
+    public TeamDepartmentType TeamDepartmentType { get; private set; }
+    public Guid StadiumId { get; private set; }
+    public Guid? CoachId { get; private set; }
+
+    public Team(string name, string code, Guid clubId, Guid cityId, TeamDepartmentType teamDepartmentType, Guid stadiumId)
+    {
+        if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(code))
+        {
+            throw new ArgumentException("Name and code cannot be empty.");
+        }
+
+   
+        if(clubId == Guid.Empty || clubId == Guid.Empty || stadiumId == Guid.Empty)
+        {
+            throw new ArgumentException("Club, city and stadium cannot be empty.");
+        }
+
+        Id = Guid.NewGuid();
+        Name = name;
+        Code = code;
+        ClubId = clubId;
+        CityId = cityId;
+        TeamDepartmentType = teamDepartmentType;
+
+    }
     public Team SetName(string name)
     {
         Name = name;
@@ -44,6 +66,7 @@ public class Team(string name, string code, Guid clubId, Guid cityId, TeamDepart
 
     public Team SetCoachId(Guid coachId)
     {
+
         CoachId = coachId;
         return this;
     }
